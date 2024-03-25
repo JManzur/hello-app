@@ -1,0 +1,13 @@
+---
+version: '3.7'
+
+services:
+  hello-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      no_cache: true
+    container_name: hello-app
+    restart: always
+    ports:
+      - "8883:8883/tcp"
