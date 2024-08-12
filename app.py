@@ -22,7 +22,7 @@ def status():
 def stress():
     # Stress the CPU by calculating square root of a number
     x = 0.0001
-    for i in range(1000001):  # Loop from 0 to 1000000
+    for i in range(10000000):  # Loop from 0 to 10000000
         x += math.sqrt(x)
     cpu_after = psutil.cpu_percent(interval=1)
     return jsonify(
