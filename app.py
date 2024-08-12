@@ -22,12 +22,10 @@ def status():
 def stress():
     # Stress the CPU by calculating square root of a number
     x = 0.0001
-    for i in range(10000000):  # Loop from 0 to 10000000
+    for i in range(1000000):  # Loop from 0 to 1000000
         x += math.sqrt(x)
-    cpu_after = psutil.cpu_percent(interval=1)
     return jsonify(
-    Message = "Stress test completed",
-    Current_CPU_Usage = f"{cpu_after}%",
+    Message = "Calculation completed!",
     Hostname = HOSTNAME
     ), 200, {'ContentType':'application/json'}
 
