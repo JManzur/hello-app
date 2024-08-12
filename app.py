@@ -1,5 +1,6 @@
 from os import getenv
 from flask import Flask, jsonify
+import math
 
 app = Flask(__name__)
 
@@ -13,6 +14,17 @@ def status():
 	return jsonify(
     Message = "Hello {}!".format(getenv('TARGET', 'World')),
 	), 200, {'ContentType':'application/json'}
+
+@app.route('/stress', methods=['GET'])
+def stress():
+    # Stress the CPU by calculating square root of a number
+    x = 0.0001
+    for i in range(1000001):  # Loop from 0 to 1000000
+        x += math.sqrt(x)
+    return jsonify(
+    Message = "Stress test completed",
+    ), 200, {'ContentType':'application/json'}
+
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8883)

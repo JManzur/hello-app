@@ -1,7 +1,8 @@
 FROM python:3.9.19-slim-bullseye
 
 WORKDIR /usr/src/app
-RUN apt-get update && apt-get install -y curl
+RUN apt-get update && apt-get install curl -y
+RUN apt-get install htop -y
 RUN pip install --upgrade pip
 RUN pip install flask
 COPY app.py /usr/src/app/
