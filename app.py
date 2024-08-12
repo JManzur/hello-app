@@ -1,6 +1,9 @@
 from os import getenv
 from flask import Flask, jsonify
-import math
+import math, psutil
+import socket
+
+HOSTNAME = socket.gethostname()
 
 app = Flask(__name__)
 
@@ -21,10 +24,12 @@ def stress():
     x = 0.0001
     for i in range(1000001):  # Loop from 0 to 1000000
         x += math.sqrt(x)
+    cpu_after = psutil.cpu_percent(interval=1)
     return jsonify(
     Message = "Stress test completed",
+    Current_CPU_Usage = f"{cpu_after}%",
+    Hostname = HOSTNAME
     ), 200, {'ContentType':'application/json'}
-
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8883)
