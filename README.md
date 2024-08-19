@@ -13,3 +13,5 @@ while true; do echo -n; curl -s localhost:8883/stress | jq -r; sleep 0.001; done
 ```
 
 The `/stress` endpoint run a math calculation that will stress the CPU.
+
+Also, both `/status` and `/stress` endpoint will return the pod name, so you can demostrate that the request is load balanced between the pods.

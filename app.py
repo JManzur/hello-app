@@ -16,6 +16,7 @@ def hello_world():
 def status():
 	return jsonify(
     Message = "Hello {}!".format(getenv('TARGET', 'World')),
+    Hostname = HOSTNAME
 	), 200, {'ContentType':'application/json'}
 
 @app.route('/stress', methods=['GET'])
