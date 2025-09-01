@@ -10,7 +10,7 @@ COPY app.py /usr/src/app/
 
 ENV TARGET="Jhonnathan"
 
-EXPOSE 8883
+EXPOSE 443
 
 USER 9000:9000
 
